@@ -1,4 +1,6 @@
-
+**说明**
+- 作者github地址：https://github.com/muyinchen/migo-security
+这是整理到eclipse之后的版本，更多详情请到原项目了解细节
 
 **代码开发文档**(内含详细开发过程):
 
