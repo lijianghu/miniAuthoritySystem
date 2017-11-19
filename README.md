@@ -1,6 +1,6 @@
 **说明**
 - 作者github地址：https://github.com/muyinchen/migo-security
-这是整理到eclipse之后的版本，更多详情请到原项目了解细节
+这是整理到eclipse之后的版本，更多详情请到原项目了解。
 
 **代码开发文档**(内含详细开发过程):
 
@@ -62,29 +62,6 @@ migo-security
 ```
 
 
-
-**效果展示：** 
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182815.png)
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182916.png)
-
-
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182930.png)
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182807.png)
-
-
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182827.png)
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182848.png)
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_182747.png)
-
-![](http://og0sybnix.bkt.clouddn.com/sp170410_192009.png)
-
 **技术选型：**
 
 - 核心框架：Spring Framework 4.3
@@ -102,13 +79,3 @@ migo-security
 - MySQL5.5+
 - Tomcat7.0+
 - Maven3.0+
-
-**本地部署**
-
-- 通过git下载源码
-- 创建数据库migo-security，数据库编码为UTF-8
-- 执行sql/migo-security.sql文件，初始化数据【按需导入表结构及数据】
-- 修改migo-security.properties文件，更新MySQL账号和密码
-- Eclipse、IDEA执行【clean package tomcat7:run】命令，即可运行项目
-- 项目访问路径：[http://localhost:8080/](http://localhost:8080/)
-- 账号密码：admin/admin# miniAuthoritySystem
