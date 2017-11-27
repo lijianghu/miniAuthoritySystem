@@ -54,7 +54,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/api/**" />
-			<ref bean="authorizationInterceptor" />
+			<ref bean="apiTokenAuthorizationInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 

@@ -17,10 +17,10 @@
 
 package com.migo.service;
 
-import com.migo.entity.UserEntity;
-
 import java.util.List;
 import java.util.Map;
+
+import com.migo.entity.UserEntity;
 
 /**
  * 用户Service
@@ -30,27 +30,37 @@ import java.util.Map;
  */
 public interface UserService {
 
-    UserEntity queryObject(Long userId);
+  UserEntity queryObject(Long userId);
 
-    List<UserEntity> queryList(Map<String, Object> map);
+  List<UserEntity> queryList(Map<String, Object> map);
 
-    int queryTotal(Map<String, Object> map);
+  int queryTotal(Map<String, Object> map);
 
-    void save(UserEntity user);
+  void save(UserEntity user);
 
-    void update(UserEntity user);
+  void update(UserEntity user);
 
-    void delete(Long userId);
+  void delete(Long userId);
 
-    void deleteBatch(Long[] userIds);
+  void deleteBatch(Long[] userIds);
 
-    UserEntity queryByMobile(String mobile);
+  UserEntity queryByMobile(String mobile);
 
-    /**
-     * 用户登录
-     * @param mobile    手机号
-     * @param password  密码
-     * @return          返回用户ID
-     */
-    long login(String mobile, String password);
+  /**
+   * 用户登录
+   * 
+   * @param mobile
+   *          手机号
+   * @param password
+   *          密码
+   * @return 返回用户ID
+   */
+  long login(String mobile, String password);
+
+  /**
+   * 获取用户集合,json格式
+   * 
+   * @return
+   */
+  String getUsers();
 }

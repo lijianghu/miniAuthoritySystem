@@ -15,43 +15,27 @@
  * limitations under the License.
  */
 
-package com.migo.service;
+package com.migo.annotation;
 
-import java.util.Map;
-
-import com.migo.entity.TokenEntity;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * 用户Token Service
+ * 
+ * <pre>
+ *   增加验证token方式
+ *   给第三方申请appId和appKey,加密生成密文放到header中,然后验证是否通过
+ * </pre>
  *
- * @author 知秋
- * @email fei6751803@163.com
+ * @author ljh
+ * @version $Id: ApiToken.java, v 1.0 2017年11月27日 下午4:19:23 ljh Exp $
  */
-public interface TokenService {
-
-  TokenEntity queryByUserId(Long userId);
-
-  TokenEntity queryByToken(String token);
-
-  void save(TokenEntity token);
-
-  void update(TokenEntity token);
-
-  /**
-   * 生成token
-   * 
-   * @param userId
-   *          用户ID
-   * @return 返回token相关信息
-   */
-  Map<String, Object> createToken(long userId);
-
-  /**
-   * 验证token,查看第三方appid和appkey是否正确
-   * 
-   * @param token
-   * @return
-   */
-  TokenEntity queryAppKey(String token);
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface ApiToken {
 
 }

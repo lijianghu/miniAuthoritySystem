@@ -15,43 +15,39 @@
  * limitations under the License.
  */
 
-package com.migo.service;
+package com.migo.api;
 
-import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.migo.entity.TokenEntity;
+import com.migo.annotation.ApiToken;
+import com.migo.annotation.LoginUser;
+import com.migo.entity.UserEntity;
+import com.migo.utils.R;
 
 /**
- * 用户Token Service
+ * 测试带header中有token的api
+ * 
+ * <pre>
  *
- * @author 知秋
- * @email fei6751803@163.com
+ * </pre>
+ *
+ * @author ljh
+ * @version $Id: ApiTestUserController.java, v 1.0 2017年11月27日 下午5:32:45 ljh Exp
+ *          $
  */
-public interface TokenService {
-
-  TokenEntity queryByUserId(Long userId);
-
-  TokenEntity queryByToken(String token);
-
-  void save(TokenEntity token);
-
-  void update(TokenEntity token);
-
+@RestController
+@RequestMapping("/api")
+public class ApiTestUserController {
   /**
-   * 生成token
-   * 
-   * @param userId
-   *          用户ID
-   * @return 返回token相关信息
+   * 获取用户信息
    */
-  Map<String, Object> createToken(long userId);
+  @ApiToken
+  @GetMapping("users")
+  public R userInfo(@LoginUser UserEntity user) {
 
-  /**
-   * 验证token,查看第三方appid和appkey是否正确
-   * 
-   * @param token
-   * @return
-   */
-  TokenEntity queryAppKey(String token);
+    return R.ok().put("user", user);
+  }
 
 }
