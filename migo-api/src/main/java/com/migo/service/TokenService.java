@@ -29,29 +29,31 @@ import com.migo.entity.TokenEntity;
  */
 public interface TokenService {
 
-  TokenEntity queryByUserId(Long userId);
+	TokenEntity queryByUserId(Long userId);
 
-  TokenEntity queryByToken(String token);
+	TokenEntity queryByToken(String token);
 
-  void save(TokenEntity token);
+	void save(TokenEntity token);
 
-  void update(TokenEntity token);
+	void update(TokenEntity token);
 
-  /**
-   * 生成token
-   * 
-   * @param userId
-   *          用户ID
-   * @return 返回token相关信息
-   */
-  Map<String, Object> createToken(long userId);
+	/**
+	 * 生成token
+	 * 
+	 * @param userId
+	 *            用户ID
+	 * @return 返回token相关信息
+	 */
+	Map<String, Object> createToken(long userId);
 
-  /**
-   * 验证token,查看第三方appid和appkey是否正确
-   * 
-   * @param token
-   * @return
-   */
-  TokenEntity queryAppKey(String token);
+	/**
+	 * 验证token,查看第三方appid和appkey是否正确
+	 * 
+	 * @param token
+	 * @return
+	 */
+	TokenEntity queryAppKey(String token);
+
+	Boolean verifyToken(String token);
 
 }

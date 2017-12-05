@@ -28,7 +28,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.migo.ApiConstant;
 import com.migo.annotation.ApiToken;
-import com.migo.entity.TokenEntity;
 import com.migo.service.TokenService;
 import com.migo.utils.RRException;
 
@@ -44,29 +43,32 @@ import com.migo.utils.RRException;
  */
 @Component
 public class ApiTokenAuthorizationInterceptor extends HandlerInterceptorAdapter {
-  @Autowired
-  private TokenService tokenService;
+	@Autowired
+	private TokenService tokenService;
 
-  @Override
-  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    ApiToken annotation;
-    if (handler instanceof HandlerMethod) {
-      annotation = ((HandlerMethod) handler).getMethodAnnotation(ApiToken.class);
-    } else {
-      return true;
-    }
+	@Override
+	public boolean preHandle(HttpServletRequest request,
+			HttpServletResponse response, Object handler) throws Exception {
+		ApiToken annotation;
+		if (handler instanceof HandlerMethod) {
+			annotation = ((HandlerMethod) handler)
+					.getMethodAnnotation(ApiToken.class);
+		} else {
+			return true;
+		}
 
-    if (annotation != null) {
-      String token = request.getHeader(ApiConstant.AUTHORIZATION);
-      if (StringUtils.isBlank(token)) {
-        throw new RRException("token不能为空");
-      }
-      // 查询token信息
-      TokenEntity tokenEntity = tokenService.queryAppKey(token);
-      if (tokenEntity == null) {
-        throw new RRException("token失效，调用失败");
-      }
-    }
-    return true;
-  }
+		if (annotation != null) {
+			String token = request.getHeader(ApiConstant.AUTHORIZATION);
+			if (StringUtils.isBlank(token)) {
+				throw new RRException("token不能为空");
+			}
+			// 查询token信息
+			// TokenEntity tokenEntity = tokenService.queryAppKey(token);
+			Boolean verifyToken = tokenService.verifyToken(token);
+			if (verifyToken) {
+				throw new RRException("token失效，调用失败");
+			}
+		}
+		return true;
+	}
 }
