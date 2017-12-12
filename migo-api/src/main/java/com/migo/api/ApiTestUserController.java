@@ -27,7 +27,7 @@ import com.migo.entity.UserEntity;
 import com.migo.utils.R;
 
 /**
- * 测试带header中有token的api
+ * 测试header中有token的api
  * 
  * <pre>
  *

@@ -1,6 +1,5 @@
 **说明**
-- 作者github地址：https://github.com/muyinchen/migo-security
-这是整理到eclipse之后的版本，更多详情请到原项目了解。
+- 原版本:[https://github.com/muyinchen/migo-security](https://github.com/muyinchen/migo-security "migo-security")
 
 **代码开发文档**(内含详细开发过程):
 
@@ -79,3 +78,6 @@ migo-security
 - MySQL5.5+
 - Tomcat7.0+
 - Maven3.0+
+
+**其他说明**
+代码采用[lombok](http://jnb.ociweb.com/jnb/jnbJan2010.html "官网地址"),简洁了bo.详情自行查询
