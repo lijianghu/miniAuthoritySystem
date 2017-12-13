@@ -17,52 +17,28 @@
 
 package com.migo.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * 角色与菜单对应关系
  *
- * @author   知秋
+ * @author 知秋
  * @email fei6751803@163.com
  */
 @Data
 public class SysRoleMenuEntity implements Serializable {
-    private static final long serialVersionUID = -492977002385838369L;
-    private Long id;
+  private static final long serialVersionUID = -492977002385838369L;
+  private Long id;
 
-    /**
-     * 角色ID
-     */
-    private Long roleId;
+  /**
+   * 角色ID
+   */
+  private Long roleId;
 
-    /**
-     * 菜单ID
-     */
-    private Long menuId;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
-
-	public Long getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(Long menuId) {
-		this.menuId = menuId;
-	}
+  /**
+   * 菜单ID
+   */
+  private Long menuId;
 }
